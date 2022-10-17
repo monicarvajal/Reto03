@@ -1,7 +1,7 @@
 package com.example.reto3.Repository;
 
-import com.example.reto3.model.Messages;
 import com.example.reto3.Repository.Crud.CrudRepositoryMessages;
+import com.example.reto3.model.Messages;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

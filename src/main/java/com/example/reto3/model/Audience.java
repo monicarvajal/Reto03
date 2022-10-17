@@ -22,7 +22,7 @@ public class Audience implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "category")
-    @JsonIgnoreProperties("audiences")
+    @JsonIgnoreProperties("audience")
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "audience")

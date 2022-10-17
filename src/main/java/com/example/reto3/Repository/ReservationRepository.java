@@ -6,6 +6,7 @@ import com.example.reto3.model.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,5 +26,18 @@ public class ReservationRepository {
 
     public Reservation save(Reservation reservation){
         return crudRepositoryReservation.save(reservation);
+    }
+    public List<Reservation> ReservacionStatus(String status){
+        return crudRepositoryReservation.findAllByStatus(status);
+    }
+
+    public List<Reservation> ReservacionTiempo(Date fechaInicial, Date fechaFinal){
+        return crudRepositoryReservation.findAllByStartDateAfterAndStartDateBefore(fechaInicial, fechaFinal);
+    }
+
+
+    public   List<Object[]> reporteClientes() {
+        return crudRepositoryReservation.reporteClientes();
+
     }
 }

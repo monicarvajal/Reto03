@@ -1,7 +1,6 @@
 package com.example.reto3.Service;
 
 import com.example.reto3.Repository.CategoryRepository;
-import com.example.reto3.model.Audience;
 import com.example.reto3.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

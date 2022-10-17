@@ -17,12 +17,12 @@ public class Reservation implements Serializable {
     private Date startDate;
     private Date devolutionDate;
 
-    private String status ="created";
+    private String status = "created";
 
     @ManyToOne
     @JoinColumn(name = "audience")
     @JsonIgnoreProperties("reservations")
-    private Audience audience;
+    private Audience audiences;
 
     @ManyToOne
     @JoinColumn(name = "client")
@@ -30,7 +30,7 @@ public class Reservation implements Serializable {
     private Client client;
 
     @OneToOne(cascade = {CascadeType.REMOVE}, mappedBy = "reservation")
-    @JsonIgnoreProperties("reservation")
+    @JsonIgnoreProperties("reservations")
     private Score score;
 
     public Integer getIdReservation() {
@@ -65,12 +65,12 @@ public class Reservation implements Serializable {
         this.status = status;
     }
 
-    public Audience getAudience() {
-        return audience;
+    public Audience getAudiences() {
+        return audiences;
     }
 
-    public void setAudience(Audience audience) {
-        this.audience = audience;
+    public void setAudiences(Audience audiences) {
+        this.audiences = audiences;
     }
 
     public Client getClient() {
