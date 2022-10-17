@@ -34,4 +34,29 @@ public class AudienceService {
             }
         }
     }
+
+    public Audience update(Audience audiences) {
+        if (audiences.getId() != null) {
+            Optional<Audience> g = audienceRepository.getAudience(audiences.getId());
+            if (!g.isEmpty()) {
+                if (audiences.getDescription() != null) {
+                    g.get().setDescription(audiences.getDescription());
+                }
+                if (audiences.getName() != null) {
+                    g.get().setName(audiences.getName());
+                }
+                return audienceRepository.save(g.get());
+            }
+        }
+        return audiences;
+    }
+    public boolean delete(int id) {
+        Boolean d = getAudience(id).map(audiences -> {
+                    audienceRepository.delete(audiences);
+                    return true;
+                }
+        ).orElse(false);
+        return d;
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.reto3.Service;
 
 import com.example.reto3.Repository.CategoryRepository;
+import com.example.reto3.model.Audience;
 import com.example.reto3.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +33,29 @@ public class CategoryService {
                 return  category;
             }
         }
+    }
+
+    public Category update(Category category) {
+        if(category.getId()!=null){
+            Optional<Category>g= categoryRepository.getCategory(category.getId());
+            if(!g.isEmpty()){
+                if(category.getDescription()!=null){
+                    g.get().setDescription(category.getDescription());
+                }
+                if(category.getName()!=null){
+                    g.get().setName(category.getName());
+                }
+                return categoryRepository.save(g.get());
+            }
+        }
+        return category;
+    }
+    public boolean deleteCategory(int id) {
+        Boolean d = getCategory(id).map(category -> {
+                    categoryRepository.delete(category);
+                    return true;
+                }
+        ).orElse(false);
+        return d;
     }
 }

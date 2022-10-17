@@ -31,5 +31,17 @@ public class AudienceController {
     public void save(@RequestBody Audience audiences){
         audienceService.save(audiences);
     }
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void update(@RequestBody Audience audiences) {
+        audienceService.update(audiences);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id) {
+      return audienceService.delete(id);
+    }
+
 
 }
