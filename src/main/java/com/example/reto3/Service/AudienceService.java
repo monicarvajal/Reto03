@@ -45,6 +45,12 @@ public class AudienceService {
                 if (audiences.getName() != null) {
                     g.get().setName(audiences.getName());
                 }
+                if (audiences.getOwner() != null){
+                    g.get().setOwner(audiences.getOwner());
+                }
+                if (audiences.getCapacity() != null){
+                    g.get().setCapacity(audiences.getCapacity());
+                }
                 return audienceRepository.save(g.get());
             }
         }
