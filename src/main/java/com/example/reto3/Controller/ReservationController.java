@@ -29,7 +29,6 @@ public class ReservationController {
         return reservationService.getReservation(id);
     }
 
-
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public void save(@RequestBody Reservation reservation) {
@@ -42,7 +41,8 @@ public class ReservationController {
     }
 
     @GetMapping("/report-dates/{dateOne}/{dateTwo}")
-    public List<Reservation> getReservasTiempo(@PathVariable("dateOne") String fechaInicial,@PathVariable("dateTwo") String fechaFinal) {
+    public List<Reservation> getReservasTiempo(@PathVariable("dateOne") String fechaInicial,
+                                               @PathVariable("dateTwo") String fechaFinal) {
         return reservationService.ReservacionTiempo(fechaInicial, fechaFinal);
     }
 

@@ -29,7 +29,7 @@ public class ReservationService {
         return reservationRepository.getReservation(id);
     }
 
-    public Reservation  save(Reservation reservation) {
+    public Reservation save(Reservation reservation) {
         if (reservation.getIdReservation() == null) {
             return reservationRepository.save(reservation);
         } else {
